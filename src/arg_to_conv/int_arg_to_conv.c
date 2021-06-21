@@ -6,7 +6,7 @@
 /*   By: trcottam <trcottam@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 13:48:04 by trcottam          #+#    #+#             */
-/*   Updated: 2020/12/17 21:38:40 by trcottam         ###   ########.fr       */
+/*   Updated: 2021/06/20 23:11:01 by trcottam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@ void	int_arg_to_conv(va_list *args, t_conv *conv)
 		conv->negative = true;
 		conv->var.i = -(intmax_t)conv->var.i;
 	}
-	if (conv->precision == 0 && conv->var.i == 0)
+	if (conv->spec == SPEC_PTR && conv->var.i == 0)
+	{
+		conv->str = ft_strdup("(nil)");
+		conv->spec = SPEC_UDEC;
+	}
+	else if (conv->precision == 0 && conv->var.i == 0)
 		conv->str = ft_strdup("");
 	else
 		conv->str = ft_uimaxtobase(conv->var.i, get_conv_base(conv));
