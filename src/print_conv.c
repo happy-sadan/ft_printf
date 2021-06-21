@@ -6,13 +6,13 @@
 /*   By: trcottam <trcottam@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:11:49 by trcottam          #+#    #+#             */
-/*   Updated: 2020/12/16 22:02:02 by trcottam         ###   ########.fr       */
+/*   Updated: 2021/06/21 10:25:26 by trcottam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		print_conv(char **format, va_list *args, int written_len)
+int	print_conv(char **format, va_list *args, int written_len)
 {
 	t_conv		conv;
 	int			len;

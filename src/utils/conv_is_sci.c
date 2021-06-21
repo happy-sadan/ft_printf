@@ -6,7 +6,7 @@
 /*   By: trcottam <trcottam@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 13:21:57 by trcottam          #+#    #+#             */
-/*   Updated: 2020/12/17 20:35:47 by trcottam         ###   ########.fr       */
+/*   Updated: 2021/06/21 10:31:41 by trcottam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ bool	conv_is_sci(t_conv *conv, double d)
 		return (true);
 	if (conv->spec == SPEC_DDEC)
 		return (false);
-	precision = conv->precision >= 0 ? conv->precision : 6;
+	if (conv->precision >= 0)
+		precision = conv->precision;
+	else
+		precision = 6;
 	if (precision == 0)
 		precision = 1;
 	dec_cnt = precision - 1;
